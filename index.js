@@ -9,7 +9,7 @@ app.use(express.json()); // body-parser
 app.use(express.urlencoded({ extended: false }));
 
 app.get("/", (req, res) => {
-    res.send("Welcome in the morning");
+    res.render("pages/home.ejs");
 });
 app.use("/api/users", require("./routes/users"));
 

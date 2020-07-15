@@ -83,6 +83,16 @@ const routes = {
             res.send(error);
         }
     },
+    // filter
+    filterUser: async (req, res) => {
+        const { id } = req.params.id;
+        try {
+            const result = await user.find({ _id: id });
+            res.send(result);
+        } catch (error) {
+            res.send(error);
+        }
+    },
 };
 
 module.exports = routes;

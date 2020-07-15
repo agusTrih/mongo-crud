@@ -19,12 +19,28 @@ const routes = {
             res.send(error);
         }
     },
+    // get all
     getAllUsers: async (req, res) => {
         try {
             const users = await User.find();
             res.send({
                 message: "get all Users",
                 results: users,
+            });
+        } catch (error) {
+            console.log(error);
+
+            res.send(error);
+        }
+    },
+    // get user one
+    getUser: async (req, res) => {
+        const _id = req.params.id;
+        try {
+            const user = await User.findOne({ _id });
+            res.send({
+                message: "find one user",
+                user: user,
             });
         } catch (error) {
             console.log(error);

@@ -53,11 +53,29 @@ const routes = {
         const _id = req.params.id;
 
         try {
-            const deletedUser = await User.findByIdAndRemove({ _id });
+            const userDelete = await User.findByIdAndRemove({ _id });
 
             res.send({
                 message: "1 user has been deleted",
-                deleted: deletedUser,
+                deleted: userDelete,
+            });
+        } catch (error) {
+            console.log(error);
+
+            res.send(error);
+        }
+    },
+    // edit
+    editUser: async (req, res) => {
+        const _id = req.params.id;
+        const { name, email, password } = req.body;
+
+        try {
+            await User.findOneAndUpdate({ _id }, { name, email, password });
+            const users = await User.find();
+            res.send({
+                message: "1 user has been updated",
+                updatedUsers: users,
             });
         } catch (error) {
             console.log(error);

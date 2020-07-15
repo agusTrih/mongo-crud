@@ -10,6 +10,7 @@ router.get("/", routes.getAllUsers);
 router.get("/:id", routes.getUser);
 router.delete("/:id", routes.deleteUser);
 router.put("/:id", routes.editUser);
+router.get("/filter/:id", routes.filterUser);
 // router.put("/", routes.updateRegistration);
 
 module.exports = router;

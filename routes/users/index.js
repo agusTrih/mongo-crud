@@ -6,6 +6,7 @@ const { update } = require("../../models/User");
 
 // router.get("/", routes.getRegistration);
 router.post("/", routes.userRegistration);
+router.get("/", routes.getAllUsers);
 // router.put("/", routes.updateRegistration);
 
 module.exports = router;

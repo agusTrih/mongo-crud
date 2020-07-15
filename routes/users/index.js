@@ -8,6 +8,7 @@ const { update } = require("../../models/User");
 router.post("/", routes.userRegistration);
 router.get("/", routes.getAllUsers);
 router.get("/", routes.getUser);
+router.delete("/:id", routes.deleteUser);
 // router.put("/", routes.updateRegistration);
 
 module.exports = router;
